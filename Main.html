@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>multi-purpose-calulator</title>
+    <link rel="stylesheet" href="MainPage.css">
+    <link rel="stylesheet" href="SecondPage.css">
+    <link rel="stylesheet" href="ThirdPage.css">
+    
+
+    <link rel="shortcut icon" href="assets/favicon-calc.jpg" type="image/x-icon">
+<script src="https://kit.fontawesome.com/b4f90719c2.js" crossorigin="anonymous"></script>
+</head>
+<body>
+                <!-- ================== MAIN INTERFACE ======================== -->                 
+    <div id="big interface"> <!-- the main one who has the body in it-->
+    <div id="calculator"> <!-- all interfaces-->
+        <input type="text" class="" id="display" placeholder="numbers here" readonly> <!-- display-->
+
+                <!-- ======================= InterFace (1) = simple calculator ========================== -->
+
+
+        <div id="main-interface" class="">
+            <div id="keys1">
+                <button class="interface1 moreOption" id="Option1">Price + Tax</button>
+                <button class="interface1 moreOption" id="Option2">Scientific</button>
+                <button class="interface1 moreOption" id="Option3">MoreOption</button>
+            </div>  <!-- option keys => ID = "keys1" -->
+            
+            <div id= "keys2"> 
+                <button onclick="deleteLastDigit()" class="interface1" id="erase-btn">
+                    <i class="fa-solid fa-delete-left"></i>
+                </button>
+                
+                <button onclick="toggleBracket()" class=" interface1 operator">()</button>
+                <button onclick="whatWillDisplay(`%`)" class="interface1 operator">%</button>
+                <button onclick="whatWillDisplay(`÷`)" class="interface1 operator">÷</button>
+                <button onclick="whatWillDisplay(`7`)" class="interface1 numbers">7</button>
+                <button onclick="whatWillDisplay(`8`)" class="interface1 numbers">8</button>
+                <button onclick="whatWillDisplay(`9`)" class="interface1 numbers">9</button>
+                <button onclick="whatWillDisplay(`X`)" class="interface1 operator">X</button>
+                <button onclick="whatWillDisplay(`4`)" class="interface1 number">4</button>
+                <button onclick="whatWillDisplay(`5`)" class="interface1 numbers">5</button>
+                <button onclick="whatWillDisplay(`6`)" class="interface1 numbers">6</button>
+                <button onclick="whatWillDisplay(`-`)" class="interface1 operator">-</button>
+                <button onclick="whatWillDisplay(`1`)" class="interface1 numbers">1</button>
+                <button onclick="whatWillDisplay(`2`)" class="interface1 numbers">2</button>
+                <button onclick="whatWillDisplay(`3`)" class="interface1 numbers">3</button>
+                <button onclick="whatWillDisplay(`+`)" class="interface1 operator">+</button>
+                <button onclick="ClearDisplay()" class="interface1" id="clear">C</button>
+
+                <!-- <button onclick="deleteLastDigit()" class="interface1" id="erase-btn">
+                    <i class="fa-solid fa-delete-left"></i>
+                </button> -->
+                <button onclick="whatWillDisplay(`0`)" class="interface1 numbers">0</button>
+                <button onclick="whatWillDisplay(`.`)" class="interface1 numbers">.</button>
+                <button onclick="calculate()" class="interface1 operator" id="equal">=</button>
+            </div> <!-- oepration & number keys => ID = "keys2" -->
+            
+            
+            
+        </div> <!-- button + operation holder div -->
+
+                <!-- ======================= InterFace (2) = tax + price ========================== -->
+
+            <div id="price-interface" class="hidden" > <!-- Price + tax interface -->
+        
+                <div id="keys1">
+                <button class="interface1 moreOption transition " id="OptionReturn(1)" >Main calculator</button>
+                <button class="interface1 moreOption" id="OptionReturn(2)">Scientific</button>
+                <button class="interface1 moreOption" id="OptionReturn(3)">MoreOption</button>
+                </div> <!-- Keys1-->
+
+                <div class="inputs">
+                <label class="Labels" for="price">Enter Price Here :</label>
+                <input class="input-box inputPlace" id="price" type="number" placeholder="price">
+
+                <label class="Labels" for="Tax">Enter Tax Here (percentage) :</label>
+                <input class="input-box inputPlace" id="tax" type="number" placeholder="tax">
+
+                <button class="inputBtn" id="tax-button" onclick="" > Calculate </button>
+
+                <label class="Labels"> Price Including Tax :</label>
+                <input class="input-box inputPlace" id="tax-result" type="text" placeholder="price with tax" readonly>
+                </div> <!-- inputs -->
+                
+
+        </div> <!-- Price + tax interface -->
+
+                <!-- ======================= InterFace (3) = scientific ========================== -->
+
+        <div id="scientific-interface" class="hidden">
+            <div id="keys1">
+                <button class="interface1 moreOption" id="OptionReturn(4)">Price + Tax</button>
+                <button class="interface1 moreOption transition " id="OptionReturn(5)" >Main calculator</button>
+                <button class="interface1 moreOption" id="OptionReturn(6)">MoreOption</button>
+            </div>  <!-- option keys => ID = "keys1" -->
+            
+            <div id= "scientific-keys">
+                <button onclick="whatWillDisplay(`²`)" class="interface1 interface3 scientific">x²</button>
+                <button onclick="whatWillDisplay(`³`)" class="interface1 interface3 scientific">x³</button>
+                <button onclick="whatWillDisplay(`^`)" class="interface1 interface3 scientific">xʸ</button>
+                <button onclick="whatWillDisplay(`e^`)" class="interface1 interface3 scientific">eʸ</button>
+                <button onclick="deleteLastDigit()" class="interface1 interface3 " id="erase-btn">
+                <i class="fa-solid fa-delete-left"></i> </button>
+                <button onclick="toggleBracket()" class=" interface1 interface3 operator">()</button>
+                <button onclick="whatWillDisplay(`%`)" class="interface1 interface3 operator">%</button>
+                <button onclick="whatWillDisplay(`÷`)" class="interface1 operator">÷</button>
+
+                <button onclick="whatWillDisplay(`1/`)" class="interface1 interface3 scientific">1/</button>
+                <button onclick="whatWillDisplay(`²√`)" class="interface1 interface3 scientific">²√</button>
+                <button onclick="whatWillDisplay(`³√`)" class="interface1 interface3 scientific">³√</button>
+                <button onclick="whatWillDisplay(`ʸ√x`)"class="interface1 interface3 scientific">√</button>
+                <button onclick="whatWillDisplay(`7`)" class="interface1 interface3 numbers">7</button>
+                <button onclick="whatWillDisplay(`8`)" class="interface1 interface3 numbers">8</button>
+                <button onclick="whatWillDisplay(`9`)" class="interface1 interface3 numbers">9</button>
+                <button onclick="whatWillDisplay(`X`)" class="interface1 interface3 operator">X</button>
+
+                <button onclick="whatWillDisplay(`10^`)" class="interface1 interface3 scientific">10ˣ</button>
+                <button onclick="whatWillDisplay(`ln`)" class="interface1 interface3 scientific">ln</button>
+                <button onclick="whatWillDisplay(`!`)" class="interface1 interface3 scientific">x!</button>
+                <button onclick="whatWillDisplay(`log₁₀`)" class="interface1 interface3 scientific">log₁₀</button>
+                <button onclick="whatWillDisplay(`4`)" class="interface1 interface3 number">4</button>
+                <button onclick="whatWillDisplay(`5`)" class="interface1 interface3 numbers">5</button>
+                <button onclick="whatWillDisplay(`6`)" class="interface1 interface3 numbers">6</button>
+                <button onclick="whatWillDisplay(`-`)" class="interface1  operator">-</button>
+
+                <button onclick="whatWillDisplay(`sin`)" class="interface1 interface3 scientific">sin()</button>
+                <button onclick="whatWillDisplay(`cos`)" class="interface1 interface3 scientific">cos()</button>
+                <button onclick="whatWillDisplay(`tan`)" class="interface1 interface3 scientific">tan()</button>
+                <button onclick="whatWillDisplay(`e`)" class="interface1 interface3 scientific">e</button>
+                <button onclick="whatWillDisplay(`1`)" class="interface1 interface3 numbers">1</button>
+                <button onclick="whatWillDisplay(`2`)" class="interface1 interface3 numbers">2</button>
+                <button onclick="whatWillDisplay(`3`)" class="interface1 interface3 numbers">3</button>
+                <button onclick="whatWillDisplay(`+`)" class="interface1 interface3 operator">+</button>
+
+                <button onclick="whatWillDisplay(`sinh`)" class="interface1 interface3 scientific">sinh()</button>
+                <button onclick="whatWillDisplay(`cosh`)" class="interface1 interface3 scientific">cosh()</button>
+                <button onclick="whatWillDisplay(`tanh`)" class="interface1 interface3 scientific">tanh()</button>
+                <button onclick="whatWillDisplay(`π`)" class="interface1 interface3 scientific">π</button>
+
+                <button onclick="ClearDisplay()" class="interface1 interface3 " id="clear">C</button>
+                <button onclick="whatWillDisplay(`0`)" class="interface1 interface3 numbers">0</button>
+                <button onclick="whatWillDisplay(`.`)" class="interface1 interface3 numbers">.</button>
+                <button onclick="calculate()" class="interface1 operator interface3 " id="equal">=</button>
+
+            </div> <!-- oepration & number keys => ID = "keys2" -->
+            
+            
+            
+        </div> <!-- button + operation holder div -->
+
+                <!-- ======================= InterFace (4) ========================== -->
+
+    
+    </div >     <!-- calc div => ID = "calculator" -->
+
+</div> <!-- Main big div-->
+
+
+    <script src="MainPage.js"></script>
+    <script src="SecondPage.js"></script>
+    <script src="ThridPage.js"></script>
+    <script src="Navigation.js"></script>
+
+</body>
+</html>
+
+
+
+
